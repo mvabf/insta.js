@@ -311,13 +311,13 @@ class Client extends EventEmitter {
             ])
             return
         }
-        console.log(data);
         this.emit('rawFbns', data)
         if (data.pushCategory === 'new_follower') {
             const user = await this.fetchUser(data.sourceUserId)
             this.emit('newFollower', user)
         }
         if (data.pushCategory === 'comment') {
+            console.log('entrou aqui?');
             const obj = {
                 message: data.message,
                 media_id: data.message.actionParams 
