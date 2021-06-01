@@ -317,6 +317,13 @@ class Client extends EventEmitter {
             const user = await this.fetchUser(data.sourceUserId)
             this.emit('newFollower', user)
         }
+        if (data.pushCategory === 'comment') {
+            const obj = {
+                message: data.message,
+                media_id: data.message.actionParams 
+            };
+            this.emit('newComment', obj)
+        }
         if (data.pushCategory === 'private_user_follow_request') {
             const user = await this.fetchUser(data.sourceUserId)
             this.emit('followRequest', user)
