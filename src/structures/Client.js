@@ -320,7 +320,7 @@ class Client extends EventEmitter {
             console.log('entrou aqui?');
             const obj = {
                 message: data.message,
-                media_id: data.message.actionParams 
+                media_id: data.media_id
             };
             this.emit('newComment', obj)
         }
