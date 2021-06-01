@@ -317,7 +317,6 @@ class Client extends EventEmitter {
             this.emit('newFollower', user)
         }
         if (data.pushCategory === 'comment') {
-            console.log('entrou aqui?');
             const obj = {
                 message: data.message,
                 media_id: data.actionParams.media_id
