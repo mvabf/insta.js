@@ -365,7 +365,7 @@ class Client extends EventEmitter {
         if (state) {
             await ig.importState(state)
         }
-        await ig.simulate.preLoginFlow()
+        // await ig.simulate.preLoginFlow()
         const response = await ig.account.login(username, password)
         const userData = await ig.user.info(response.pk)
         this.user = new ClientUser(this, {
